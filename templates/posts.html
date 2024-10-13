@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Posts{% endblock %}
+
+{% block content %}
+<h1>All Posts</h1>
+<ul>
+    {% for post in posts %}
+        <li>{{ post.content }} - Posted by {{ post.user.username }}</li>
+        {% if post.image %}
+            <img src="{{ url_for('static', filename='uploads/' + post.image) }}" width="200">
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}
+

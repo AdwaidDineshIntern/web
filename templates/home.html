@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h1>Home Page</h1>
+<h2>Posts</h2>
+<ul>
+    {% for post in posts %}
+        <li>{{ post.content }} - Posted by {{ post.user.username }}</li>
+        {% if post.image %}
+            <img src="{{ url_for('static', filename='uploads/' + post.image) }}" width="200">
+        {% endif %}
+    {% endfor %}
+</ul>
+
+<h2>Events</h2>
+<ul>
+    {% for event in events %}
+        <li>{{ event.title }}: {{ event.description }} on {{ event.date }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

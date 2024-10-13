@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ current_user.username }}'s Profile</h1>
+<form action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data">
+    <label for="file">Upload an image:</label>
+    <input type="file" name="file">
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}
+
